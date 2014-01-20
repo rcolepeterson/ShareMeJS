@@ -5,13 +5,13 @@ this.possible = this.possible || {};
     "use strict";
 
     /**
-     * Global utility for sharing assets via FB, Twitter, and Pinterest.  The ShareThis class uses a static interface (ex. <code>ShareThis.openFacebook(title, desc, shareUrl, picture)</code>)
+     * Global utility for sharing assets via FB, Twitter, and Pinterest.  The ShareMe class uses a static interface (ex. <code>ShareMe.openFacebook(title, desc, shareUrl, picture)</code>)
      * and should not be instantiated.
-     * @class ShareThis
+     * @class ShareMe
      * @static
      **/
-    var ShareThis = function() {
-        throw "ShareThis cannot be instantiated";
+    var ShareMe = function() {
+        throw "ShareMe cannot be instantiated";
     }
 
     var toolbar = "toolbar=0,status=0,width=680,height=380";
@@ -24,7 +24,7 @@ this.possible = this.possible || {};
      * @param  {String} shareUrl    URL to share.
      * @param  {String} picture     Path to image to share.
      */
-    ShareThis.openFacebook = function(title, desc, shareUrl, picture) {
+    ShareMe.openFacebook = function(title, desc, shareUrl, picture) {
         window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + encodeURIComponent(title) + '&p[summary]=' + encodeURIComponent(desc) + '&p[url]=' + encodeURIComponent(shareUrl) + '&p[images][0]=' + picture, 'share', toolbar);
     }
 
@@ -34,7 +34,7 @@ this.possible = this.possible || {};
      * @param  {[type]} shareUrl [description]
      * @param  {[type]} picture  [description]
      */
-    ShareThis.openTwitter = function(desc, shareUrl, picture) {
+    ShareMe.openTwitter = function(desc, shareUrl, picture) {
         window.open('http://twitter.com/share?text=' + encodeURIComponent(desc) + '&url=' + encodeURIComponent(shareUrl), 'share', toolbar);
     }
 
@@ -44,7 +44,7 @@ this.possible = this.possible || {};
      * @param  {[type]} shareUrl
      * @param  {[type]} picture
      */
-    ShareThis.openPinterest = function(desc, shareUrl, picture) {
+    ShareMe.openPinterest = function(desc, shareUrl, picture) {
         window.open('http://www.pinterest.com/pin/create/button/?url=' + encodeURIComponent(shareUrl) + '&media=' + picture + '&description=' + encodeURIComponent(desc), 'share', toolbar);
     }
 
@@ -70,13 +70,13 @@ this.possible = this.possible || {};
             descPinterest: "Pinterest desc",
         };
 
-        possible.ShareThis.initialize(sharingData);
+        possible.ShareMe.initialize(sharingData);
      
      */
-    ShareThis.initialize = function(sharingData) {
+    ShareMe.initialize = function(sharingData) {
 
         if (!sharingData) {
-            throw "ShareThis: No sharingData Obj passed into ShareThis.initialize";
+            throw "ShareMe: No sharingData Obj passed into ShareMe.initialize";
         }
 
         var $buttonsFacebook = $(sharingData.classSelectorFacebook),
@@ -88,20 +88,20 @@ this.possible = this.possible || {};
          */
         $buttonsFacebook.on('click', function(e) {
             e.preventDefault();
-            ShareThis.openFacebook(sharingData.shareTitle, sharingData.descFacebook, sharingData.shareUrl, sharingData.sharePicture)
+            ShareMe.openFacebook(sharingData.shareTitle, sharingData.descFacebook, sharingData.shareUrl, sharingData.sharePicture)
         });
 
         $buttonsTwitter.on('click', function(e) {
             e.preventDefault();
-            ShareThis.openTwitter(sharingData.descTwitter, sharingData.shareUrl, sharingData.sharePicture)
+            ShareMe.openTwitter(sharingData.descTwitter, sharingData.shareUrl, sharingData.sharePicture)
         });
 
         $buttonsPinterest.on('click', function(e) {
             e.preventDefault();
-            ShareThis.openPinterest(sharingData.descPinterest, sharingData.shareUrl, sharingData.sharePicture)
+            ShareMe.openPinterest(sharingData.descPinterest, sharingData.shareUrl, sharingData.sharePicture)
         });
     }
 
-    possible.ShareThis = ShareThis;
+    possible.ShareMe = ShareMe;
 
 }());
