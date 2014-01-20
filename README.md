@@ -3,7 +3,7 @@ ShareThisJS
 Global utility for sharing assets via FB, Twitter, and Pinterest.
 Nice to use when you want to share FB content NOT defined via Open Graph meta data. 
 <h5>Example</h5>
-    //Elements with the selector you define and pass in on an object will init the share service on click.
+    //Elements with the selector you define and pass in will init the share service on click.
     <a class="facebook_custom" href="#">Facebook</a>
     <a class="twitter_custom" href="#">Twitter</a>
     <a class="pinterest_custom" href="#">Pinterest</a>
