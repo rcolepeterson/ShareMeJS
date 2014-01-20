@@ -1,4 +1,4 @@
-ShareThis
+ShareThisJS
 ==========
 Global utility for sharing assets via FB, Twitter, and Pinterest.
 Nice to use when you want to share FB content NOT defined via Open Graph meta data. 

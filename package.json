@@ -1,8 +1,8 @@
 {
-    "name": "ShareThis",
+    "name": "ShareThisJS",
     "version": "0.0.0",
     "description": "Global utility for sharing content via Facebook, Twitter and Pinterest.",
-    "homepage": "https://github.com/rcolepeterson/helloworld",
+    "homepage": "https://github.com/rcolepeterson/ShareThisJS",
     "author": {
         "name": "Cole Peterson",
         "email": "cole.peterson@possible.com",
@@ -10,7 +10,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/rcolepeterson/helloworld.git"
+        "url": "https://github.com/rcolepeterson/ShareThisJS.git"
     },
     "dependencies": {},
     "devDependencies": {
