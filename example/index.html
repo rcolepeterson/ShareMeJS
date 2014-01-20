@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Share this example</title>
+    <style type="text/css">
+    body {
+        font-family: sans-serif;
+    }
+    </style>
+</head>
+
+<body onload="init();">
+
+    <h1>Share This</h1>
+        <div>
+            <ul><li><a class="facebook_custom" href="#">Facebook</a></li></ul>
+            <ul><li><a class="twitter_custom" href="#">Twitter</a></li></ul>
+            <ul><li><a class="testme" href="#">Custom Facebook</a></li></ul>
+        </div>
+
+    <script src="../components/jquery/jquery.min.js"></script>
+    <script src="../src/share.js"></script>
+    <script>
+    function init() {
+
+        /**
+         * Define default values for sharing.
+         */
+        var sharingData = {
+            classSelectorFacebook: ".facebook_custom", //class name of facebook btns. can be anything.
+            classSelectorTwitter: ".twitter_custom", //twitter btns
+            classSelectorPinterest: ".pinterest_custom", //twitter btns
+            sharePicture: 'http://placehold.it/250x250', //image url to share
+            shareTitle: "Share title",
+            shareUrl: "http://www.zaaz.com", //url to share
+            descFacebook: "Facebook desc",
+            descTwitter: "Twitter desc",
+            descPinterest: "Pinterest desc",
+        };
+
+        //any element with the matching selector will launch a share modal.
+        possible.ShareThis.initialize(sharingData);
+
+
+        /**
+         * Open dialogue holding FB Share UI. Bypass default values.
+         */
+        $('.testme').on('click', function() {
+
+            var shareTitle = "my title",
+                descFacebook = "cool desc",
+                shareUrl = "http://www.possible.com",
+                picture = "http://placehold.it/350x150";
+
+            possible.ShareThis.openFacebook(shareTitle, descFacebook, shareUrl, picture);
+        });
+
+    }
+    </script>
+
+</body>
+</html>
