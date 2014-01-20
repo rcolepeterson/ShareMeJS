@@ -1,4 +1,4 @@
-ShareThisJS
+ShareMeJS
 ==========
 Global utility for sharing assets via FB, Twitter, and Pinterest.
 Nice to use when you want to share FB content NOT defined via Open Graph meta data. 
@@ -20,7 +20,7 @@ Nice to use when you want to share FB content NOT defined via Open Graph meta da
         descPinterest: "Pinterest desc"
     };
     
-    possible.ShareThis.initialize(sharingData);
+    possible.ShareMe.initialize(sharingData);
 <p>API for sharing dynamic content not defined via the initialize method.</p>
 <h5>Example</h5>
     <a class=".testme" href="#">fb</a>
@@ -31,7 +31,7 @@ Nice to use when you want to share FB content NOT defined via Open Graph meta da
             shareUrl = "http://possible.com",
             picture = "http://placehold.it/350x150";
     
-        possible.ShareThis.openFacebook(shareTitle, fbDesc, shareUrl, picture);
+        possible.ShareMe.openFacebook(shareTitle, fbDesc, shareUrl, picture);
     });
 
 
