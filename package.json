@@ -1,8 +1,8 @@
 {
-    "name": "ShareMeJS",
+    "name": "ShareMe",
     "version": "1.0.0",
     "description": "Global utility for sharing content via Facebook, Twitter and Pinterest.",
-    "homepage": "https://github.com/rcolepeterson/ShareThisJS",
+    "homepage": "https://github.com/rcolepeterson/ShareMeJS",
     "author": {
         "name": "Cole Peterson",
         "email": "cole.peterson@possible.com",
@@ -10,7 +10,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/rcolepeterson/ShareThisJS.git"
+        "url": "https://github.com/rcolepeterson/ShareMeJS.git"
     },
     "dependencies": {},
     "devDependencies": {
