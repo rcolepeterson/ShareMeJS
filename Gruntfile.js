@@ -88,7 +88,7 @@ module.exports = function(grunt) {
             },
             my_target: {
                 files: {
-                    'dist/shareThis.min.js': ['src/share.js']
+                    'dist/shareme.min.js': ['src/ShareMe.js']
                 }
             }
         }
