@@ -1,4 +1,8 @@
-// namespace:
+/*
+ * ShareMe.js
+ * http://www.possible.com
+ * cole.peterson@possible.com
+ */
 this.possible = this.possible || {};
 
 (function() {
