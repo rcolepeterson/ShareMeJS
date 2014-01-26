@@ -34,4 +34,4 @@ Nice to use when you want to share FB content NOT defined via Open Graph meta da
         possible.ShareMe.openFacebook(shareTitle, fbDesc, shareUrl, picture);
     });
 
-
+<a href="http://rcolepeterson.com/ShareMeJS/example/index.html" target="_blank">DEMO</a>
