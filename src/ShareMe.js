@@ -54,7 +54,7 @@ this.possible = this.possible || {};
 
     /**
      * Initialize global sharing, set defaults and add click handlers.
-     * @param  {[type]} sharingData     Object holding sharing values.
+     * @param  {object} sharingData     Object holding sharing values.
      
         <h4>Example</h4>
 
@@ -80,7 +80,7 @@ this.possible = this.possible || {};
     ShareMe.initialize = function(sharingData) {
 
         if (!sharingData) {
-            throw "ShareMe: No sharingData Obj passed into ShareMe.initialize";
+            throw "ShareMe: No sharingData obj passed into ShareMe.initialize";
         }
 
         var $buttonsFacebook = $(sharingData.classSelectorFacebook),
