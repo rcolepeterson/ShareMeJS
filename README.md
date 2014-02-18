@@ -3,7 +3,7 @@ ShareMeJS
 Global utility for sharing assets via FB, Twitter, and Pinterest.
 Nice to use when you want to share FB content NOT defined via Open Graph meta data. 
 
-Note: Facebook needs and APP ID passed in. Due to changes in the FaceBook API, you can no longer pass in an image to their sharer.php script and have it show up in the user’s feed. 
+Note: Facebook needs and APP Id passed in. Due to changes in the FaceBook API, you can no longer pass an image to their sharer.php script and have it show up in the user’s feed. 
 
 To obtain a FaceBook AppID, go to the FB developer page and create an APP for each environment you want to test the FB functionality. https://developers.facebook.com
 
