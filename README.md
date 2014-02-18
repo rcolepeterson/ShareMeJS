@@ -2,6 +2,15 @@ ShareMeJS
 ==========
 Global utility for sharing assets via FB, Twitter, and Pinterest.
 Nice to use when you want to share FB content NOT defined via Open Graph meta data. 
+
+Note: Facebook needs and APP ID passed in. Due to changes in the FaceBook API, you can no longer pass in an image to their sharer.php script and have it show up in the user’s feed. 
+
+To obtain a FaceBook AppID, go to the FB developer page and create an APP for each environment you want to test the FB functionality. https://developers.facebook.com
+
+You will also need to include the JS Facebook SDK in your html.
+
+
+
 <h5>Example</h5>
     //Elements with the selector you define and pass in will init the share service on click.
     <a class="facebook_custom" href="#">Facebook</a>
@@ -10,11 +19,13 @@ Nice to use when you want to share FB content NOT defined via Open Graph meta da
 
     var sharingData = {
         classSelectorFacebook: ".facebook_custom", //class name of facebook btns. can be anything.
+        facebookAppId: [Your Facebook AppId], //facebook AppId
         classSelectorTwitter: ".twitter_custom", //twitter btns
         classSelectorPinterest: ".pinterest_custom", //twitter btns
         sharePicture: 'http://placehold.it/250x250', //image url to share
         shareTitle: "Share title",
         shareUrl: "http://www.zaaz.com", //url to share
+        captionFacebook: "Facebook caption",
         descFacebook: "Facebook desc",
         descTwitter: "Twitter desc",
         descPinterest: "Pinterest desc"
@@ -27,11 +38,13 @@ Nice to use when you want to share FB content NOT defined via Open Graph meta da
     
     $('.testme').on('click', function() {
             var shareTitle = "my title",
+            captionFacebook: "Facebook caption",
             fbDesc = "cool desc",
             shareUrl = "http://possible.com",
-            picture = "http://placehold.it/350x150";
+            picture = "http://placehold.it/350x150",
+            facebookAppId = [Your Facebook AppId]; //facebook AppId
     
-        possible.ShareMe.openFacebook(shareTitle, fbDesc, shareUrl, picture);
+        possible.ShareMe.openFacebook(shareTitle, fbDesc, captionFacebook, shareUrl, picture, facebookAppId);
     });
 
 <a href="http://rcolepeterson.com/ShareMeJS/example/index.html" target="_blank">DEMO</a>

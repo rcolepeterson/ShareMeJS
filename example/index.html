@@ -20,11 +20,13 @@
             <ul><li><a class="pinterest_custom" href="#">Pinterest</a></li></ul>
         </div>
 
-    <h5>Using unique share values defined on click.</h5>
+    <h5>Using unique share values defined on click. No need to call initialize</h5>
         <div>
             <ul><li><a class="testme" href="#">Facebook bypass default settings.</a></li></ul>
         </div>
 
+    <!--The Facebook SDK-->
+    <script src='//connect.facebook.net/en_US/all.js'></script>
     <script src="../components/jquery/jquery.min.js"></script>
     <script src="../src/ShareMe.js"></script>
     <script>
@@ -35,14 +37,16 @@
          */
         var sharingData = {
             classSelectorFacebook: ".facebook_custom", //class name of facebook btns. can be anything.
+            facebookAppId: "1407543382833493", //facebook AppId
             classSelectorTwitter: ".twitter_custom", //twitter btns
             classSelectorPinterest: ".pinterest_custom", //twitter btns
             sharePicture: 'http://placehold.it/250x250', //image url to share
             shareTitle: "Share title",
             shareUrl: "http://www.zaaz.com", //url to share
+            captionFacebook: "Facebook caption",
             descFacebook: "Facebook desc",
             descTwitter: "Twitter desc",
-            descPinterest: "Pinterest desc",
+            descPinterest: "Pinterest desc"
         };
 
         //any element with the matching selector will launch a share modal.
@@ -55,11 +59,13 @@
         $('.testme').on('click', function() {
 
             var shareTitle = "my title",
+                captionFacebook = "cool caption",
                 descFacebook = "cool desc",
                 shareUrl = "http://www.possible.com",
-                picture = "http://placehold.it/350x150";
+                picture = "http://placehold.it/350x150",
+                facebookAppId = "1407543382833493"; //facebook AppId
 
-            possible.ShareMe.openFacebook(shareTitle, descFacebook, shareUrl, picture);
+            possible.ShareMe.openFacebook(shareTitle, captionFacebook, descFacebook, shareUrl, picture, facebookAppId);
         });
 
     }

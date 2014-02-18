@@ -21,15 +21,42 @@ this.possible = this.possible || {};
     var toolbar = "toolbar=0,status=0,width=680,height=380";
 
     /**
-     * Opens FaceBook Share interface in a dialogue.
-     * (Use this directly to bypass default).
+     * Opens FaceBook Share interface in a dialogue. You will need a FB AppId and the Facebook SDK script inserted in your HTML.
      * @param  {String} title       Share title
+     * @param  {String} caption     Share caption.
      * @param  {String} desc        Share description.
      * @param  {String} shareUrl    URL to share.
      * @param  {String} picture     Path to image to share.
+     * @param  {String} appid       Facebook Application Id
      */
-    ShareMe.openFacebook = function(title, desc, shareUrl, picture) {
-        window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + encodeURIComponent(title) + '&p[summary]=' + encodeURIComponent(desc) + '&p[url]=' + encodeURIComponent(shareUrl) + '&p[images][0]=' + picture, 'share', toolbar);
+    ShareMe.openFacebook = function(title, caption, desc, shareUrl, picture, appid) {
+
+
+        if (!appid) {
+            alert("ShareMe.openFacebook. You did not pass in a appid");
+        }
+
+        if (!ShareMe.fbApiInit) {
+            FB.init({
+                appId: appid,
+                status: true,
+                xfbml: true
+            });
+        }
+
+        ShareMe.fbApiInit = true; //FB init flag
+
+        var shareObj = {
+            method: 'feed',
+            name: title,
+            description: desc,
+            caption: caption,
+            link: shareUrl,
+            picture: picture
+        }
+        FB.ui(shareObj);
+        return false;
+
     }
 
     /**
@@ -64,11 +91,13 @@ this.possible = this.possible || {};
         //expected value object
         var sharingData = {
             classSelectorFacebook: ".facebook_custom", //class name of facebook btns. can be anything.
+            facebookAppId: "1407543382833493", //facebook AppId
             classSelectorTwitter: ".twitter_custom", //twitter btns
             classSelectorPinterest: ".pinterest_custom", //twitter btns
             sharePicture: 'http://placehold.it/250x250', //image url to share
             shareTitle: "Share title",
             shareUrl: "http://www.zaaz.com", //url to share
+            captionFacebook: "Facebook caption",
             descFacebook: "Facebook desc",
             descTwitter: "Twitter desc",
             descPinterest: "Pinterest desc",
@@ -85,14 +114,13 @@ this.possible = this.possible || {};
 
         var $buttonsFacebook = $(sharingData.classSelectorFacebook),
             $buttonsTwitter = $(sharingData.classSelectorTwitter),
-            $buttonsPinterest = $(sharingData.classSelectorPinterest);
-
+            $buttonsPinterest = $(sharingData.classSelectorPinterest)
         /**
          * Define handlers. FB,TW,PN.
          */
         $buttonsFacebook.on('click', function(e) {
             e.preventDefault();
-            ShareMe.openFacebook(sharingData.shareTitle, sharingData.descFacebook, sharingData.shareUrl, sharingData.sharePicture)
+            ShareMe.openFacebook(sharingData.shareTitle, sharingData.captionFacebook, sharingData.descFacebook, sharingData.shareUrl, sharingData.sharePicture, sharingData.facebookAppId)
         });
 
         $buttonsTwitter.on('click', function(e) {
