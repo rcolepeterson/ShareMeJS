@@ -8,7 +8,7 @@ Note: Facebook needs and APP ID passed in. Due to changes in the FaceBook API, y
 To obtain a FaceBook AppID, go to the FB developer page and create an APP for each environment you want to test the FB functionality. https://developers.facebook.com
 
 You will also need to include the JS Facebook SDK in your html.
-
+[connect.facebook.net/en_US/all.js]
 
 
 <h5>Example</h5>
