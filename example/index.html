@@ -38,6 +38,7 @@
         var sharingData = {
             classSelectorFacebook: ".facebook_custom", //class name of facebook btns. can be anything.
             facebookAppId: "224545301082432", //facebook AppId
+            faceBookCallBack: faceBookCallBack,
             classSelectorTwitter: ".twitter_custom", //twitter btns
             classSelectorPinterest: ".pinterest_custom", //twitter btns
             sharePicture: 'http://placehold.it/250x250', //image url to share
@@ -46,7 +47,7 @@
             captionFacebook: "Facebook caption",
             descFacebook: "Facebook desc",
             descTwitter: "Twitter desc",
-            descPinterest: "Pinterest desc"
+            descPinterest: "Pinterest desc",
         };
 
         //any element with the matching selector will launch a share modal.
@@ -65,8 +66,23 @@
                 picture = "http://placehold.it/350x150",
                 facebookAppId = "224545301082432"; //facebook AppId
 
-            possible.ShareMe.openFacebook(shareTitle, captionFacebook, descFacebook, shareUrl, picture, facebookAppId);
+                if ( window.location.hostname.toLowerCase().indexOf('localhost') != -1)
+                { 
+                    facebookAppId = "220850724789139";
+                }
+                    
+
+            possible.ShareMe.openFacebook(shareTitle, captionFacebook, descFacebook, shareUrl, picture, facebookAppId, faceBookCallBack);
         });
+
+        /**
+         * [faceBookCallBack description]
+         * @param  {[type]} response [description]
+         * @return {[type]}          [description]
+         */
+        function faceBookCallBack(response){
+            alert("response "+ response);
+        }
 
     }
     </script>

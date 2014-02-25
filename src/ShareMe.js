@@ -28,8 +28,9 @@ this.possible = this.possible || {};
      * @param  {String} shareUrl    URL to share.
      * @param  {String} picture     Path to image to share.
      * @param  {String} appid       Facebook Application Id
+     * @param  {String} cb          Facebook Callback
      */
-    ShareMe.openFacebook = function(title, caption, desc, shareUrl, picture, appid) {
+    ShareMe.openFacebook = function(title, caption, desc, shareUrl, picture, appid, cb) {
 
 
         if (!appid) {
@@ -54,8 +55,13 @@ this.possible = this.possible || {};
             link: shareUrl,
             picture: picture
         }
-        FB.ui(shareObj);
-        return false;
+        FB.ui(shareObj,
+            function(response) {
+                if (cb) {
+                    cb(response);
+                }
+            }
+        );
 
     }
 
@@ -91,7 +97,8 @@ this.possible = this.possible || {};
         //expected value object
         var sharingData = {
             classSelectorFacebook: ".facebook_custom", //class name of facebook btns. can be anything.
-            facebookAppId: "1407543382833493", //facebook AppId
+            facebookAppId: "1407543382833493", //facebook AppId,
+            faceBookCallBack: faceBookCallBack, //facebook callback
             classSelectorTwitter: ".twitter_custom", //twitter btns
             classSelectorPinterest: ".pinterest_custom", //twitter btns
             sharePicture: 'http://placehold.it/250x250', //image url to share
@@ -115,13 +122,13 @@ this.possible = this.possible || {};
         var $buttonsFacebook = $(sharingData.classSelectorFacebook),
             $buttonsTwitter = $(sharingData.classSelectorTwitter),
             $buttonsPinterest = $(sharingData.classSelectorPinterest)
-        /**
-         * Define handlers. FB,TW,PN.
-         */
-        $buttonsFacebook.on('click', function(e) {
-            e.preventDefault();
-            ShareMe.openFacebook(sharingData.shareTitle, sharingData.captionFacebook, sharingData.descFacebook, sharingData.shareUrl, sharingData.sharePicture, sharingData.facebookAppId)
-        });
+            /**
+             * Define handlers. FB,TW,PN.
+             */
+            $buttonsFacebook.on('click', function(e) {
+                e.preventDefault();
+                ShareMe.openFacebook(sharingData.shareTitle, sharingData.captionFacebook, sharingData.descFacebook, sharingData.shareUrl, sharingData.sharePicture, sharingData.facebookAppId, sharingData.faceBookCallBack)
+            });
 
         $buttonsTwitter.on('click', function(e) {
             e.preventDefault();
