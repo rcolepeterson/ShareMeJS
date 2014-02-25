@@ -20,6 +20,7 @@ You will also need to include the JS Facebook SDK in your html.
     var sharingData = {
         classSelectorFacebook: ".facebook_custom", //class name of facebook btns. can be anything.
         facebookAppId: [Your Facebook AppId], //facebook AppId
+        faceBookCallBack: faceBookCallBack, //facebook callback
         classSelectorTwitter: ".twitter_custom", //twitter btns
         classSelectorPinterest: ".pinterest_custom", //twitter btns
         sharePicture: 'http://placehold.it/250x250', //image url to share
@@ -44,7 +45,11 @@ You will also need to include the JS Facebook SDK in your html.
             picture = "http://placehold.it/350x150",
             facebookAppId = [Your Facebook AppId]; //facebook AppId
     
-        possible.ShareMe.openFacebook(shareTitle, fbDesc, captionFacebook, shareUrl, picture, facebookAppId);
+        possible.ShareMe.openFacebook(shareTitle, fbDesc, captionFacebook, shareUrl, picture, facebookAppId, faceBookCallBack);
     });
+
+    function faceBookCallBack(response){
+        alert("response "+ response);
+    }
 
 <a href="http://rcolepeterson.com/ShareMeJS/example/index.html" target="_blank">DEMO</a>
