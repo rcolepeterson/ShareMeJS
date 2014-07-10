@@ -78,7 +78,7 @@ module.exports = function(grunt) {
             },
             all: [
                 'Gruntfile.js',
-                'js/{,*/}*.js'
+                'src/{,*/}*.js'
             ]
         },
         uglify: {

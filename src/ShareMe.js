@@ -1,24 +1,24 @@
+/* global FB, jQuery */
+'use strict';
 /*
  * ShareMe.js
  * http://www.possible.com
  * cole.peterson@possible.com
  */
-this.possible = this.possible || {};
-
-(function() {
-    "use strict";
+var possible = this.possible || {};
+(function($) {
 
     /**
      * Global utility for sharing assets via FB, Twitter, and Pinterest.  The ShareMe class uses a static interface (ex. <code>ShareMe.openFacebook(title, desc, shareUrl, picture)</code>)
      * and should not be instantiated.
      * @class ShareMe
      * @static
-     **/
+     */
     var ShareMe = function() {
-        throw "ShareMe cannot be instantiated";
-    }
+        throw 'ShareMe cannot be instantiated';
+    };
 
-    var toolbar = "toolbar=0,status=0,width=680,height=380";
+    var toolbar = 'toolbar=0,status=0,width=680,height=380';
 
     /**
      * Opens FaceBook Share interface in a dialogue. You will need a FB AppId and the Facebook SDK script inserted in your HTML.
@@ -34,7 +34,7 @@ this.possible = this.possible || {};
 
 
         if (!appid) {
-            alert("ShareMe.openFacebook. You did not pass in a appid");
+            console.error('ShareMe.openFacebook. You did not pass in a appid');
         }
 
         if (!ShareMe.fbApiInit) {
@@ -54,7 +54,7 @@ this.possible = this.possible || {};
             caption: caption,
             link: shareUrl,
             picture: picture
-        }
+        };
         FB.ui(shareObj,
             function(response) {
                 if (cb) {
@@ -63,7 +63,7 @@ this.possible = this.possible || {};
             }
         );
 
-    }
+    };
 
     /**
      * Opens Twitter Share interface in a dialogue.
@@ -71,9 +71,9 @@ this.possible = this.possible || {};
      * @param  {[type]} shareUrl [description]
      * @param  {[type]} picture  [description]
      */
-    ShareMe.openTwitter = function(desc, shareUrl, picture) {
+    ShareMe.openTwitter = function(desc, shareUrl) {
         window.open('http://twitter.com/share?text=' + encodeURIComponent(desc) + '&url=' + encodeURIComponent(shareUrl), 'share', toolbar);
-    }
+    };
 
     /**
      * Opens Pinterest Share interface in a dialogue.
@@ -83,12 +83,12 @@ this.possible = this.possible || {};
      */
     ShareMe.openPinterest = function(desc, shareUrl, picture) {
         window.open('http://www.pinterest.com/pin/create/button/?url=' + encodeURIComponent(shareUrl) + '&media=' + picture + '&description=' + encodeURIComponent(desc), 'share', toolbar);
-    }
+    };
 
     /**
      * Initialize global sharing, set defaults and add click handlers.
      * @param  {object} sharingData     Object holding sharing values.
-     
+
         <h4>Example</h4>
 
         //html
@@ -111,36 +111,35 @@ this.possible = this.possible || {};
         };
 
         possible.ShareMe.initialize(sharingData);
-     
      */
     ShareMe.initialize = function(sharingData) {
 
         if (!sharingData) {
-            throw "ShareMe: No sharingData obj passed into ShareMe.initialize";
+            throw 'ShareMe: No sharingData obj passed into ShareMe.initialize';
         }
 
         var $buttonsFacebook = $(sharingData.classSelectorFacebook),
             $buttonsTwitter = $(sharingData.classSelectorTwitter),
-            $buttonsPinterest = $(sharingData.classSelectorPinterest)
-            /**
-             * Define handlers. FB,TW,PN.
-             */
-            $buttonsFacebook.on('click', function(e) {
-                e.preventDefault();
-                ShareMe.openFacebook(sharingData.shareTitle, sharingData.captionFacebook, sharingData.descFacebook, sharingData.shareUrl, sharingData.sharePicture, sharingData.facebookAppId, sharingData.faceBookCallBack)
-            });
+            $buttonsPinterest = $(sharingData.classSelectorPinterest);
+        /**
+         * Define handlers. FB,TW,PN.
+         */
+        $buttonsFacebook.on('click', function(e) {
+            e.preventDefault();
+            ShareMe.openFacebook(sharingData.shareTitle, sharingData.captionFacebook, sharingData.descFacebook, sharingData.shareUrl, sharingData.sharePicture, sharingData.facebookAppId, sharingData.faceBookCallBack);
+        });
 
         $buttonsTwitter.on('click', function(e) {
             e.preventDefault();
-            ShareMe.openTwitter(sharingData.descTwitter, sharingData.shareUrl, sharingData.sharePicture)
+            ShareMe.openTwitter(sharingData.descTwitter, sharingData.shareUrl, sharingData.sharePicture);
         });
 
         $buttonsPinterest.on('click', function(e) {
             e.preventDefault();
-            ShareMe.openPinterest(sharingData.descPinterest, sharingData.shareUrl, sharingData.sharePicture)
+            ShareMe.openPinterest(sharingData.descPinterest, sharingData.shareUrl, sharingData.sharePicture);
         });
-    }
+    };
 
     possible.ShareMe = ShareMe;
 
-}());
+}(jQuery));
