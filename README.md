@@ -18,38 +18,38 @@ You will also need to include the JS Facebook SDK in your html.
     <a class="pinterest_custom" href="#">Pinterest</a>
 
     var sharingData = {
-        classSelectorFacebook: ".facebook_custom", //class name of facebook btns. can be anything.
+        classSelectorFacebook: '.facebook_custom', //class name of facebook btns. can be anything.
         facebookAppId: [Your Facebook AppId], //facebook AppId
         faceBookCallBack: faceBookCallBack, //facebook callback
-        classSelectorTwitter: ".twitter_custom", //twitter btns
+        classSelectorTwitter: '.twitter_custom', //twitter btns
         classSelectorPinterest: ".pinterest_custom", //twitter btns
         sharePicture: 'http://placehold.it/250x250', //image url to share
-        shareTitle: "Share title",
-        shareUrl: "http://www.zaaz.com", //url to share
-        captionFacebook: "Facebook caption",
-        descFacebook: "Facebook desc",
-        descTwitter: "Twitter desc",
-        descPinterest: "Pinterest desc"
+        shareTitle: 'Share title',
+        shareUrl: 'http://www.zaaz.com', //url to share
+        captionFacebook: 'Facebook caption',
+        descFacebook: 'Facebook desc',
+        descTwitter: 'Twitter desc',
+        descPinterest: 'Pinterest desc'
     };
-    
+
     possible.ShareMe.initialize(sharingData);
 <p>API for sharing dynamic content not defined via the initialize method.</p>
 <h5>Example</h5>
     <a class=".testme" href="#">fb</a>
-    
+
     $('.testme').on('click', function() {
-            var shareTitle = "my title",
-            captionFacebook: "Facebook caption",
-            fbDesc = "cool desc",
-            shareUrl = "http://possible.com",
-            picture = "http://placehold.it/350x150",
+            var shareTitle = 'my title',
+            captionFacebook: 'Facebook caption',
+            fbDesc = 'cool desc',
+            shareUrl = 'http://possible.com',
+            picture = 'http://placehold.it/350x150',
             facebookAppId = [Your Facebook AppId]; //facebook AppId
-    
+
         possible.ShareMe.openFacebook(shareTitle, fbDesc, captionFacebook, shareUrl, picture, facebookAppId, faceBookCallBack);
     });
 
     function faceBookCallBack(response){
-        alert("response "+ response);
+        alert('response '+ response);
     }
 
 <a href="http://rcolepeterson.com/ShareMeJS/example/index.html" target="_blank">DEMO</a>
