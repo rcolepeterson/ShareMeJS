@@ -22,7 +22,7 @@ You will also need to include the JS Facebook SDK in your html.
         facebookAppId: [Your Facebook AppId], //facebook AppId
         faceBookCallBack: faceBookCallBack, //facebook callback
         classSelectorTwitter: '.twitter_custom', //twitter btns
-        classSelectorPinterest: ".pinterest_custom", //twitter btns
+        classSelectorPinterest: '.pinterest_custom', //twitter btns
         sharePicture: 'http://placehold.it/250x250', //image url to share
         shareTitle: 'Share title',
         shareUrl: 'http://www.zaaz.com', //url to share
